@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Appbar } from './components/pageOne/Appbar'
 import { Cards } from './components/pageOne/Cards'
-import { fetchData, fetchCountries, fetchDataFromMathdro } from './components/FetchDataFromApi'
+import { fetchData, fetchCountries } from './components/FetchDataFromApi'
 import { Countries } from './components/pageOne/TableCom'
 import SecApp from './components/pageOne/SecApp'
 
@@ -11,7 +11,6 @@ import {Grid, Link, Typography} from '@material-ui/core'
 
 function App() {
   const [dataA, setDataA] = useState({})
-  const [data, setData] = useState({})
   const [countries, setCountries] = useState([])
 
     useEffect(() => {
@@ -26,15 +25,6 @@ function App() {
       (async () => {
         const fetchedData = await fetchData();
         setDataA(fetchedData)
-        
-      })()
-    }, [])
-
-    useEffect(() => {
-
-      (async () => {
-        const fetchedData = await fetchDataFromMathdro();
-        setData(fetchedData)
         
       })()
     }, [])
